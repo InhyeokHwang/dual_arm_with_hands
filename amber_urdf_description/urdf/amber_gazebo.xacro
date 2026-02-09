@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Ignition Gazebo (Fortress) JointTrajectoryController -->
+  <gazebo>
+    <plugin
+      filename="ignition-gazebo-joint-trajectory-controller-system"
+      name="ignition::gazebo::systems::JointTrajectoryController">
+      
+      <joint_name>right_Rev2</joint_name>
+      <joint_name>right_Rev3</joint_name>
+      <joint_name>right_Rev6</joint_name>
+      <joint_name>right_Rev7</joint_name>
+      <joint_name>right_Rev9</joint_name>
+      <joint_name>right_Rev10</joint_name>
+      <joint_name>right_hand_mount</joint_name>
+
+      <joint_name>left_Rev2</joint_name>
+      <joint_name>left_Rev3</joint_name>
+      <joint_name>left_Rev6</joint_name>
+      <joint_name>left_Rev7</joint_name>
+      <joint_name>left_Rev9</joint_name>
+      <joint_name>left_Rev10</joint_name>
+      <joint_name>left_hand_mount</joint_name>
+
+      <joint_name>right_finger_mid_1_joint</joint_name>
+      <joint_name>right_finger_mid_2_joint</joint_name>
+      <joint_name>right_finger_mid_3_joint</joint_name>
+
+      <joint_name>left_finger_mid_1_joint</joint_name>
+      <joint_name>left_finger_mid_2_joint</joint_name>
+      <joint_name>left_finger_mid_3_joint</joint_name>
+    </plugin>
+  </gazebo>
+
+  <!-- Ignition Gazebo (Fortress) JointStatePublisher System -->
+  <gazebo>
+    <plugin
+      filename="ignition-gazebo-joint-state-publisher-system"
+      name="ignition::gazebo::systems::JointStatePublisher">
+
+      <joint_name>right_Rev2</joint_name>
+      <joint_name>right_Rev3</joint_name>
+      <joint_name>right_Rev6</joint_name>
+      <joint_name>right_Rev7</joint_name>
+      <joint_name>right_Rev9</joint_name>
+      <joint_name>right_Rev10</joint_name>
+      <joint_name>right_hand_mount</joint_name>
+
+      <joint_name>left_Rev2</joint_name>
+      <joint_name>left_Rev3</joint_name>
+      <joint_name>left_Rev6</joint_name>
+      <joint_name>left_Rev7</joint_name>
+      <joint_name>left_Rev9</joint_name>
+      <joint_name>left_Rev10</joint_name>
+      <joint_name>left_hand_mount</joint_name>
+
+      <joint_name>right_finger_mid_1_joint</joint_name>
+      <joint_name>right_finger_mid_2_joint</joint_name>
+      <joint_name>right_finger_mid_3_joint</joint_name>
+
+      <joint_name>left_finger_mid_1_joint</joint_name>
+      <joint_name>left_finger_mid_2_joint</joint_name>
+      <joint_name>left_finger_mid_3_joint</joint_name>
+
+    </plugin>
+  </gazebo>
+
+</robot>

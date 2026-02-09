@@ -1,0 +1,29 @@
+<launch>
+    <!-- xacro file -->
+    <let name="urdf_path"
+         value="$(find-pkg-share amber_urdf_description)/urdf/amber_b1_full_robot.xacro"/>
+
+    <!-- rviz config -->
+    <let name="rviz_config_path"
+         value="$(find-pkg-share amber_urdf_description)/rviz/amber_b1_display.rviz"/>
+
+    <!-- robot_state_publisher: xacro -> robot_description -->
+    <node pkg="robot_state_publisher"
+          exec="robot_state_publisher"
+          name="robot_state_publisher">
+        <param name="robot_description"
+               value="$(command 'xacro $(var urdf_path)')"/>
+    </node>
+
+    <!-- joint_state_publisher GUI -->
+    <node pkg="joint_state_publisher_gui"
+          exec="joint_state_publisher_gui"
+          name="joint_state_publisher_gui"/>
+
+    <!-- RViz2 -->
+    <node pkg="rviz2"
+          exec="rviz2"
+          name="rviz2"
+          output="screen"
+          args="-d $(var rviz_config_path)"/>
+</launch>

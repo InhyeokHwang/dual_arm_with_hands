@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="pr09_hand_standalone">
+
+  <!-- ========= MATERIALS (각 링크별 색상) ========= -->
+  <material name="mat_hand_base">
+    <!-- 갈색 -->
+    <color rgba="0.59 0.29 0.0 1.0" />
+  </material>
+
+  <material name="mat_mid">
+    <!-- 노랑 -->
+    <color rgba="1.0 0.9 0.0 1.0" />
+  </material>
+
+  <material name="mat_top">
+    <!-- 시안 -->
+    <color rgba="0.0 0.9 0.9 1.0" />
+  </material>
+
+
+  <!-- ================== HAND MACRO 정의 ================== -->
+  <xacro:macro name="pr09_hand" params="prefix parent_link x:=0 y:=0 z:=0 roll:=0 pitch:=0 yaw:=0">
+
+    <!-- hand base를 상위 링크에 고정 -->
+    <joint name="${prefix}pr09_hand_mount" type="fixed">
+      <parent link="${parent_link}" />
+      <child link="${prefix}HAND_BASE_A" />
+      <origin xyz="${x} ${y} ${z}" rpy="${roll} ${pitch} ${yaw}" />
+    </joint>
+
+    <!-- ===== LINKS ===== -->
+    <link name="${prefix}HAND_BASE_A">
+      <inertial>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <mass value="0.0" />
+        <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0" />
+      </inertial>
+      <visual name="${prefix}HAND_BASE_A_visual">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/HAND_BASE_A.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+        <material name="mat_hand_base"/>
+      </visual>
+      <collision name="${prefix}HAND_BASE_A_collision">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/HAND_BASE_A.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}FINGER_MID_1_B">
+      <inertial>
+        <origin xyz="-0.02 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <mass value="0.0" />
+        <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0" />
+      </inertial>
+      <visual name="${prefix}FINGER_MID_1_B_visual">
+        <origin xyz="-0.02 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_MID_1_B.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+        <material name="mat_mid"/>
+      </visual>
+      <collision name="${prefix}FINGER_MID_1_B_collision">
+        <origin xyz="-0.02 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_MID_1_B.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}FINGER_MID_2_C">
+      <inertial>
+        <origin xyz="-0.02 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <mass value="0.0" />
+        <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0" />
+      </inertial>
+      <visual name="${prefix}FINGER_MID_2_C_visual">
+        <origin xyz="-0.02 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_MID_2_C.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+        <material name="mat_mid"/>
+      </visual>
+      <collision name="${prefix}FINGER_MID_2_C_collision">
+        <origin xyz="-0.02 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_MID_2_C.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}FINGER_MID_3_D">
+      <inertial>
+        <origin xyz="0.0192 0.0 -0.02" rpy="0.0 0.0 0.0" />
+        <mass value="0.0" />
+        <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0" />
+      </inertial>
+      <visual name="${prefix}FINGER_MID_3_D_visual">
+        <origin xyz="0.0192 0.0 -0.02" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_MID_3_D.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+        <material name="mat_mid"/>
+      </visual>
+      <collision name="${prefix}FINGER_MID_3_D_collision">
+        <origin xyz="0.0192 0.0 -0.02" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_MID_3_D.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}FINGER_TOP_1_E">
+      <inertial>
+        <origin xyz="${-0.02 - 0.0288} -0.0408 0.0" rpy="0.0 0.0 0.0" />
+        <mass value="0.0" />
+        <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0" />
+      </inertial>
+      <visual name="${prefix}FINGER_TOP_1_E_visual">
+        <origin xyz="${-0.02 - 0.0288} -0.0408 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_TOP_1_E.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+        <material name="mat_top"/>
+      </visual>
+      <collision name="${prefix}FINGER_TOP_1_E_collision">
+        <origin xyz="${-0.02 - 0.0288} -0.0408 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_TOP_1_E.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}FINGER_TOP_2_F">
+      <inertial>
+        <origin xyz="${-0.02 - 0.0172} -0.047 0.0" rpy="0.0 0.0 0.0" />
+        <mass value="0.0" />
+        <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0" />
+      </inertial>
+      <visual name="${prefix}FINGER_TOP_2_F_visual">
+        <origin xyz="${-0.02 - 0.0172} -0.047 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_TOP_2_F.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+        <material name="mat_top"/>
+      </visual>
+      <collision name="${prefix}FINGER_TOP_2_F_collision">
+        <origin xyz="${-0.02 - 0.0172} -0.047 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_TOP_2_F.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}FINGER_TOP_3_G">
+      <inertial>
+        <origin xyz="${0.0192 + 0.018} -0.047 -0.02" rpy="0.0 0.0 0.0" />
+        <mass value="0.0" />
+        <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0" />
+      </inertial>
+      <visual name="${prefix}FINGER_TOP_3_G_visual">
+        <origin xyz="${0.0192 + 0.018} -0.047 -0.02" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_TOP_3_G.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+        <material name="mat_top"/>
+      </visual>
+      <collision name="${prefix}FINGER_TOP_3_G_collision">
+        <origin xyz="${0.0192 + 0.018} -0.047 -0.02" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_TOP_3_G.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- ===== JOINTS ===== -->
+
+    <!-- HAND_BASE_A -> MID 1/2/3 -->
+    <joint name="${prefix}finger_mid_1_joint" type="revolute">
+      <parent link="${prefix}HAND_BASE_A" />
+      <child  link="${prefix}FINGER_MID_1_B" />
+      <origin xyz="0.02 0.0 0.0" rpy="0.0 0.0 -0.45" />
+      <axis xyz="0 0 1" />
+      <limit lower="0.0" upper="1.0" effort="1.0" velocity="2.0" />
+    </joint>
+
+    <joint name="${prefix}finger_mid_2_joint" type="revolute">
+      <parent link="${prefix}HAND_BASE_A" />
+      <child  link="${prefix}FINGER_MID_2_C" />
+      <origin xyz="0.02 0.0 0.0" rpy="0.0 0.0 -0.71" />
+      <axis xyz="0 0 1" />
+      <limit lower="0.0" upper="1.0" effort="1.0" velocity="2.0" />
+    </joint>
+
+    <joint name="${prefix}finger_mid_3_joint" type="revolute">
+      <parent link="${prefix}HAND_BASE_A" />
+      <child  link="${prefix}FINGER_MID_3_D" />
+      <origin xyz="-0.0192 0.0 0.02" rpy="0.0 0.0 0.65" />
+      <axis xyz="0 0 -1" />
+      <limit lower="0.0" upper="0.85" effort="1.0" velocity="2.0" />
+    </joint>
+
+    <!-- 각 MID -> 각 TOP -->
+    <joint name="${prefix}finger_top_1_joint" type="revolute">
+      <parent link="${prefix}FINGER_MID_1_B" />
+      <child  link="${prefix}FINGER_TOP_1_E" />
+      <origin xyz="0.0288 0.0408 0.0" rpy="0.0 0.0 -0.44" />
+      <axis xyz="0 0 1" />
+      <limit lower="0.0" upper="1.57" effort="1.0" velocity="2.0" />
+
+      <mimic joint="${prefix}finger_mid_1_joint" multiplier="1.3" offset="0.0" />
+    </joint>
+
+    <joint name="${prefix}finger_top_2_joint" type="revolute">
+      <parent link="${prefix}FINGER_MID_2_C" />
+      <child  link="${prefix}FINGER_TOP_2_F" />
+      <origin xyz="0.0172 0.047 0.0" rpy="0.0 0.0 -1.06" />
+      <axis xyz="0 0 1" />
+      <limit lower="0.0" upper="1.57" effort="1.0" velocity="2.0" />
+      
+      <mimic joint="${prefix}finger_mid_2_joint" multiplier="1.3" offset="0.0" />
+    </joint>
+
+    <joint name="${prefix}finger_top_3_joint" type="revolute">
+      <parent link="${prefix}FINGER_MID_3_D" />
+      <child  link="${prefix}FINGER_TOP_3_G" />
+      <origin xyz="-0.018 0.047 0.0" rpy="0.0 0.0 1.06" />
+      <axis xyz="0 0 -1" />
+      <limit lower="0.0" upper="1.57" effort="1.0" velocity="2.0" />
+
+      <mimic joint="${prefix}finger_mid_3_joint" multiplier="1.3" offset="0.0" />
+    </joint>
+
+  </xacro:macro>
+  <!-- ================== HAND MACRO 정의 끝 ================== -->
+
+  <!-- 이 파일에서만 쓸 기준 프레임 -->
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.0"/>
+      <inertia ixx="0" iyy="0" izz="0" ixy="0" iyz="0" ixz="0"/>
+    </inertial>
+  </link>
+
+  <!-- 실제 hand 인스턴스 하나 생성 -->
+  <xacro:pr09_hand
+      prefix="left_"
+      parent_link="base_link"
+      x="0.0" y="0.0" z="0.0"
+      roll="0.0" pitch="0.0" yaw="0.0"/>
+</robot>

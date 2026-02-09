@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="pr09_hand">
+
+  <xacro:macro name="pr09_hand" 
+              params="prefix parent_link 
+                      mount_x:=0 mount_y:=0 mount_z:=0 
+                      base_roll:=0 base_pitch:=0 base_yaw:=0">
+
+
+    <!-- ===== LINKS ===== -->
+    <link name="${prefix}HAND_BASE_A">
+      <inertial>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <mass value="0.31543721024048277" />
+        <inertia ixx="0.0002104234755320449"
+                  iyy="0.0002845075390631888"
+                  izz="0.00020660765139396387"
+                  ixy="-1.1589593213509524e-05"
+                  iyz="-1.6259080246311415e-06"
+                  ixz="-1.6172136125394472e-05" />
+      </inertial>
+      <visual name="${prefix}HAND_BASE_A_visual">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/HAND_BASE_A.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+        <material name="mat_hand_base"/>
+      </visual>
+      <collision name="${prefix}HAND_BASE_A_collision">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/HAND_BASE_A.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}FINGER_MID_1_B">
+      <inertial>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <mass value="0.008913706384109809" />
+        <inertia ixx="3.8825818553158194e-06"
+                  iyy="3.4295726741429334e-06"
+                  izz="2.6524289982968636e-06"
+                  ixy="-1.0690407530940014e-06"
+                  iyz="6.33102139704699e-07"
+                  ixz="5.016752757974095e-07" />
+      </inertial>
+      <visual name="${prefix}FINGER_MID_1_B_visual">
+        <origin xyz="-0.02 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_MID_1_B.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+        <material name="mat_mid"/>
+      </visual>
+      <collision name="${prefix}FINGER_MID_1_B_collision">
+        <origin xyz="-0.02 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_MID_1_B.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}FINGER_MID_2_C">
+      <inertial>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <mass value="0.009098364415549225" />
+        <inertia ixx="4.825870326280607e-06"
+                  iyy="3.252325535675333e-06"
+                  izz="2.9298161137154276e-06"
+                  ixy="-9.434186321130348e-07"
+                  iyz="-4.431737244701408e-07"
+                  ixz="-2.1079807959580984e-07" />
+      </inertial>
+      <visual name="${prefix}FINGER_MID_2_C_visual">
+        <origin xyz="-0.02 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_MID_2_C.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+        <material name="mat_mid"/>
+      </visual>
+      <collision name="${prefix}FINGER_MID_2_C_collision">
+        <origin xyz="-0.02 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_MID_2_C.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}FINGER_MID_3_D">
+      <inertial>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <mass value="0.009326866333491305" />
+        <inertia ixx="4.8461484564964024e-06"
+                  iyy="3.2517698114700913e-06"
+                  izz="2.9789737916632547e-06"
+                  ixy="9.595359903375776e-07"
+                  iyz="7.30249437969169e-14"
+                  ixz="-9.831320561081824e-14" />
+      </inertial>
+      <visual name="${prefix}FINGER_MID_3_D_visual">
+        <origin xyz="0.0192 0.0 -0.02" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_MID_3_D.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+        <material name="mat_mid"/>
+      </visual>
+      <collision name="${prefix}FINGER_MID_3_D_collision">
+        <origin xyz="0.0192 0.0 -0.02" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_MID_3_D.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}FINGER_TOP_1_E">
+      <inertial>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <mass value="0.014244898033814209" />
+        <inertia ixx="2.6201340876201426e-06"
+                  iyy="7.904242142508082e-07"
+                  izz="2.4919042171927526e-06"
+                  ixy="-4.9808500305928666e-09"
+                  iyz="-5.613551429386543e-13"
+                  ixz="-1.732242262364415e-14" />
+      </inertial>
+      <visual name="${prefix}FINGER_TOP_1_E_visual">
+        <origin xyz="-0.0488 -0.0408 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_TOP_1_E.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+        <material name="mat_top"/>
+      </visual>
+      <collision name="${prefix}FINGER_TOP_1_E_collision">
+        <origin xyz="-0.0488 -0.0408 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_TOP_1_E.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}FINGER_TOP_2_F">
+      <inertial>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <mass value="0.023619970598475117" />
+        <inertia ixx="4.122581509458369e-06"
+                  iyy="4.459025903296112e-06"
+                  izz="4.156606791667604e-06"
+                  ixy="1.4981183668804772e-06"
+                  iyz="-3.7135519878887975e-13"
+                  ixz="5.028199079028456e-13" />
+      </inertial>
+      <visual name="${prefix}FINGER_TOP_2_F_visual">
+        <origin xyz="-0.0372 -0.047 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_TOP_2_F.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+        <material name="mat_top"/>
+      </visual>
+      <collision name="${prefix}FINGER_TOP_2_F_collision">
+        <origin xyz="-0.0372 -0.047 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_TOP_2_F.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}FINGER_TOP_3_G">
+      <inertial>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <mass value="0.023619970598475454" />
+        <inertia ixx="4.122581518264625e-06"
+                  iyy="4.459025912102361e-06"
+                  izz="4.156606791667469e-06"
+                  ixy="-1.4981183668804196e-06"
+                  iyz="3.185443716528097e-13"
+                  ixz="5.143350976275862e-13" />
+      </inertial>
+      <visual name="${prefix}FINGER_TOP_3_G_visual">
+        <origin xyz="0.0372 -0.047 -0.02" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_TOP_3_G.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+        <material name="mat_top"/>
+      </visual>
+      <collision name="${prefix}FINGER_TOP_3_G_collision">
+        <origin xyz="0.0372 -0.047 -0.02" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://amber_urdf_description/meshes/FINGER_TOP_3_G.stl"
+                scale="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}HAND_MOUNT_LINK">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <mass value="0.0002" />
+        <inertia ixx="2e-06" iyy="2e-06" izz="2e-06" ixy="0" iyz="0" ixz="0" />
+      </inertial>
+    </link>
+    
+    <!-- ===== JOINTS ===== -->
+    <joint name="${prefix}hand_mount" type="revolute">
+      <parent link="${parent_link}" />
+      <child  link="${prefix}HAND_MOUNT_LINK" />
+      <origin xyz="${mount_x} ${mount_y} ${mount_z}" rpy="0 0 0" />
+      <axis xyz="0 0 1" />
+      <limit lower="-3.142" upper="3.142" effort="1.0" velocity="2.0" />
+    </joint>
+
+    <joint name="${prefix}hand_mount_fix" type="fixed">
+      <parent link="${prefix}HAND_MOUNT_LINK" />
+      <child  link="${prefix}HAND_BASE_A" />
+      <origin xyz="0 0.0135 0.0575" rpy="${base_roll} ${base_pitch} ${base_yaw}" />
+    </joint>
+
+    <!-- HAND_BASE_A -> MID 1/2/3 -->
+    <joint name="${prefix}finger_mid_1_joint" type="revolute">
+      <parent link="${prefix}HAND_BASE_A" />
+      <child  link="${prefix}FINGER_MID_1_B" />
+      <origin xyz="0.02 0.0 0.0" rpy="0.0 0.0 -0.45" />
+      <axis xyz="0 0 1" />
+      <limit lower="0.0" upper="1.0" effort="1.0" velocity="2.0" />
+    </joint>
+
+    <joint name="${prefix}finger_mid_2_joint" type="revolute">
+      <parent link="${prefix}HAND_BASE_A" />
+      <child  link="${prefix}FINGER_MID_2_C" />
+      <origin xyz="0.02 0.0 0.0" rpy="0.0 0.0 -0.71" />
+      <axis xyz="0 0 1" />
+      <limit lower="0.0" upper="1.0" effort="1.0" velocity="2.0" />
+    </joint>
+
+    <joint name="${prefix}finger_mid_3_joint" type="revolute">
+      <parent link="${prefix}HAND_BASE_A" />
+      <child  link="${prefix}FINGER_MID_3_D" />
+      <origin xyz="-0.0192 0.0 0.02" rpy="0.0 0.0 0.65" />
+      <axis xyz="0 0 -1" />
+      <limit lower="0.0" upper="0.85" effort="1.0" velocity="2.0" />
+    </joint>
+
+    <!-- 각 MID -> 각 TOP -->
+    <joint name="${prefix}finger_top_1_joint" type="revolute">
+      <parent link="${prefix}FINGER_MID_1_B" />
+      <child  link="${prefix}FINGER_TOP_1_E" />
+      <origin xyz="0.0288 0.0408 0.0" rpy="0.0 0.0 -0.44" />
+      <axis xyz="0 0 1" />
+      <limit lower="0.0" upper="1.57" effort="1.0" velocity="2.0" />
+      <mimic joint="${prefix}finger_mid_1_joint" multiplier="1.3" offset="0.0" />
+    </joint>
+
+    <joint name="${prefix}finger_top_2_joint" type="revolute">
+      <parent link="${prefix}FINGER_MID_2_C" />
+      <child  link="${prefix}FINGER_TOP_2_F" />
+      <origin xyz="0.0172 0.047 0.0" rpy="0.0 0.0 -1.06" />
+      <axis xyz="0 0 1" />
+      <limit lower="0.0" upper="1.57" effort="1.0" velocity="2.0" />
+      <mimic joint="${prefix}finger_mid_2_joint" multiplier="1.3" offset="0.0" />
+    </joint>
+
+    <joint name="${prefix}finger_top_3_joint" type="revolute">
+      <parent link="${prefix}FINGER_MID_3_D" />
+      <child  link="${prefix}FINGER_TOP_3_G" />
+      <origin xyz="-0.018 0.047 0.0" rpy="0.0 0.0 1.06" />
+      <axis xyz="0 0 -1" />
+      <limit lower="0.0" upper="1.57" effort="1.0" velocity="2.0" />
+      <mimic joint="${prefix}finger_mid_3_joint" multiplier="1.3" offset="0.0" />
+    </joint>
+
+  </xacro:macro>
+</robot>
